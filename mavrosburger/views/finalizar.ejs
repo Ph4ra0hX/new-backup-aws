@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mavros Burger</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./logoD.webp" />
+    <script
+      src="https://kit.fontawesome.com/5c2012f9d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="center">
+      <img id="logo" src="./logoD.webp" alt="img" />
+    </div>
+
+    <div class="escolhas">
+      <form action="/enviar" method="post">
+        <div id="opcoes">
+          <br />
+          <br />
+          <strong class="tituloEscolha">METÓDO DE ENTREGA:</strong> <br /><br />
+          <br />
+          <label class="container-checkbox" id="textonaocelecionado2"
+            >Quero Entrega<label id="entregapreco">R$: 1,00</label>
+            <input
+              onclick="UpdateCost()"
+              name="checkbox1"
+              type="checkbox"
+              class="checkbox1"
+              id="game28"
+              value="0.00"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <div id="autoUpdate" class="autoUpdate">
+            <strong class="tituloEscolha">SEU ENDEREÇO:</strong> <br />
+
+            <input
+              id="endereco"
+              type="text"
+              name="nome"
+              placeholder="Seu Nome"
+              required
+            />
+            <input
+              id="endereco1"
+              type="text"
+              name="rua"
+              placeholder="Sua Rua"
+              required
+            />
+            <input
+              id="endereco2"
+              type="text"
+              name="bairro"
+              placeholder=" Seu Bairro"
+              required
+            />
+            <input
+              id="endereco3"
+              name="numero"
+              type="text"
+              placeholder=" Número da Casa"
+              required
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+
+            <input
+              id="endereco4"
+              type="text"
+              name="referencia"
+              placeholder=" Ponto de Referência(opcional)"
+            />
+          </div>
+          <br />
+          <br />
+
+          <label class="container-checkbox" id="textonaocelecionado"
+            >Vou Buscar<label id="entregapreco">Grátis</label>
+            <input
+              onclick="UpdateCost()"
+              type="checkbox"
+              class="checkbox2"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <div id="autoUpdate2" class="autoUpdate2">
+            <strong class="tituloEscolha">SEU NOME:</strong> <br />
+
+            <input
+              id="endereco5"
+              type="text"
+              name="nome2"
+              placeholder="Seu Nome"
+              required
+            />
+          </div>
+        </div>
+        <br />
+        <br />
+        <strong class="tituloEscolha">FORMA DE PAGAMENTO:</strong> <br /><br />
+        <br />
+
+        <div id="fomormaDePagamento">
+          <label class="container-checkbox" id="textoPreco1"
+            >Cartão<label id="preco1"></label>
+            <input id="vaiSerCartao" type="checkbox" name="cartao" required />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container-checkbox" id="textoPreco2"
+            >Dinheiro<label id="preco2"></label>
+            <input
+              id="vaiSerDinheiro"
+              type="checkbox"
+              name="Dinheiro"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container-checkbox" id="textoPreco3"
+            >PIX<label id="preco3"></label>
+            <input id="vaiSerPIX" type="checkbox" name="PIX" required />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div id="copiarpix">
+          <p id="infopix">
+            Telefone ▼ 88981859341 ▼ Matheus Franklin da silva Freitas
+            <button id="butcopiarpix" onclick="CopiarPIX()">Copiar PIX</button>
+          </p>
+        </div>
+
+        <br />
+        <br />
+        <strong class="tituloEscolha">OBSERVAÇÕES:</strong> <br /><br />
+        <textarea
+          placeholder="Exemplo: Troco para 20 reais"
+          name="observacao"
+          class="textinput"
+        ></textarea>
+
+        <button id="butOpcoes" class="checkBtn" type="submit" value="Submit">
+          Enviar
+        </button>
+      </form>
+    </div>
+
+    <div class="rodape">
+      <br />
+      Terça a Domingo 18:00 às 22:00
+      <br />
+      <br />
+      Rua Zacarias Ferreira de Sousa
+      <br />
+      <br />
+      <a
+        href="https://www.instagram.com/mavroshamburgueria/"
+        class="fa fa-lg fa-instagram"
+      ></a>
+      <a href="https://www.instagram.com/mavroshamburgueria/">
+        @mavroshamburgueria
+      </a>
+      <br />
+      <br />
+      <a
+        href="https://api.whatsapp.com/send?phone=558882222539"
+        class="fab fa-whatsapp"
+      ></a>
+      <a href="https://api.whatsapp.com/send?phone=558882222539">
+        (88)8222 2539
+      </a>
+      <br />
+      <br />
+      Criado e desenvolvido por
+      <a id="nomeDev" href="https://www.instagram.com/wesleyj.dev/?hl=pt-br">
+        Wesley Jonatha
+      </a>
+      <br />
+      <br />
+    </div>
+    <script src="./scripts/somaPreco.js"></script>
+    <script src="./scripts/escolherEntrega.js"></script>
+    <script src="./scripts/escolherPagamento.js"></script>
+  </body>
+</html>

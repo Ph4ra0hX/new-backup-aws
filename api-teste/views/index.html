@@ -1,0 +1,427 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gold's Burger</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/logo.jpg" />
+    <script
+      src="https://kit.fontawesome.com/5c2012f9d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="fixedContainer">
+      <div id="textoPreco">
+        <span>R$: </span> <span id="totalcost">0.00</span>
+      </div>
+    </div>
+    <div class="center"><img id="logo" src="./img/logo.png" alt="img" /></div>
+    <div class="center"><img id="menu" src="./img/menu.png" alt="img" /></div>
+    <br />
+    <br />
+    <br />
+    <div class="escolhas">
+      <form action="/mais" method="post">
+        <strong class="tituloEscolha">Pedido N°: </strong>
+        <strong id="numeroDoPedido">{{numeroDoPedidoCliente}}</strong> <br />
+        <br />
+        <br />
+        <strong class="tituloEscolha">ESCOLHA SEU PÃO:</strong> <br />
+        <div id="opcoes">
+          <label class="container-checkbox"
+            >Pão Árabe<label id="preco">R$: 3,00</label>
+            <input
+              id="game1"
+              onclick="UpdateCost()"
+              value="3.00"
+              name="pao1"
+              type="checkbox"
+            />
+            <span class="checkmark"></span>
+          </label>
+	  <br /> 
+          <label class="container-checkbox"
+            >Pão Bola<label id="preco">R$: 2,00</label>
+            <input
+              id="game24"
+              onclick="UpdateCost()"
+              value="2.00"
+              name="pao2"
+              type="checkbox"
+            />
+            <span class="checkmark"></span>
+      </label> 
+      <br /> 
+         <!--   <label class="container-checkbox"
+            >Pão Australiano<label id="preco">R$: 3,00</label>
+            <input
+              id="game25"
+              onclick="UpdateCost()"
+              value="3.00"
+              name="pao4"
+              type="checkbox"
+            />
+            <span class="checkmark"></span>
+          </label>
+	  <br /> --> 
+          <label class="container-checkbox"
+            >Brioche<label id="preco">R$: 3,00</label>
+            <input
+              id="game25"
+              onclick="UpdateCost()"
+              value="3.00"
+              name="pao3"
+              type="checkbox"
+            />
+            <span class="checkmark"></span>
+          </label>
+	  <br /> 
+        </div>
+        <strong class="tituloEscolha">ESCOLHA SEU QUEIJO:</strong> <br />
+        <div id="opcoes">
+          <label class="container-checkbox"
+            >Cheddar<label id="preco"> R$: 2,00</label>
+            <input
+              id="game2"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="queijo1"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Mussarela<label id="preco"> R$: 2,00</label>
+            <input
+              id="game3"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="queijo2"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Coalho<label id="preco"> R$: 2,00</label>
+            <input
+              id="game4"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="queijo3"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+        </div>
+        <strong class="tituloEscolha">ESCOLHA SUA CARNE:</strong> <br />
+        <div id="opcoes">
+          <label class="container-checkbox"
+            >Frango Desfiado<label id="preco"> R$: 3,00</label>
+            <input
+              id="game5"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="3.00"
+              name="carne1"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Hambúrguer Caseiro<label id="preco"> R$: 6,00</label>
+            <input
+              id="game6"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="6.00"
+              name="carne2"
+            />
+            <span class="checkmark"></span>
+          </label>
+	  <br /> 
+          <label class="container-checkbox"
+            >Carne de Sol desfiada<label id="preco"> R$: 4,00</label>
+            <input
+              id="game7"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="4.00"
+              name="carne3"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Hambúrguer<label id="preco"> R$: 2,00</label>
+            <input
+              id="game8"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="carne4"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Filé de frango<label id="preco"> R$: 3,00</label>
+            <input
+              id="game9"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="3.00"
+              name="carne5"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox">
+            Linguiça Suína<label id="preco"> R$: 3,00</label>
+            <input
+              id="game10"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="3.00"
+              name="carne6"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+        </div>
+        <strong class="tituloEscolha">QUE TAL ENCHER MAIS?</strong> <br />
+        <div id="opcoes">
+          <label class="container-checkbox"
+            >Bacon<label id="preco"> R$: 2,00</label>
+            <input
+              id="game11"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="mais1"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+
+          <label class="container-checkbox"
+            >Ovo<label id="preco"> R$: 2,00</label>
+            <input
+              id="game12"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="mais2"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Cebola Caramelizada<label id="preco"> R$: 1,00</label>
+            <input
+              id="game13"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="1.00"
+              name="mais3"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Maionese Golds<label id="preco"> Grátis</label>
+            <input
+              id="game14"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="0.00"
+              name="mais4"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Presunto<label id="preco"> R$: 1,00</label>
+            <input
+              id="game15"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="1.00"
+              name="mais5"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Calabresa<label id="preco"> R$: 2,00</label>
+            <input
+              id="game16"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="2.00"
+              name="mais6"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Batata Palha<label id="preco"> R$: 1,00</label>
+            <input
+              id="game17"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="1.00"
+              name="mais7"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Molho Barbecue<label id="preco"> R$: 1,00</label>
+            <input
+              id="game23"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="1.00"
+              name="mais8"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Milho Verde<label id="preco"> R$: 1,00</label>
+            <input
+              id="game22"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="1.00"
+              name="mais9"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+        </div>
+        <strong class="tituloEscolha">VERDURA:</strong> <br />
+        <div id="opcoes">
+          <label class="container-checkbox"
+            >Alface<label id="preco"> Grátis</label>
+            <input
+              id="game18"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="0.00"
+              name="verdura1"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Tomate<label id="preco"> Grátis</label>
+            <input
+              id="game19"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="0.00"
+              name="verdura2"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Cebola Crua<label id="preco"> Grátis</label>
+            <input
+              id="game20"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="0.00"
+              name="verdura3"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <br />
+          <label class="container-checkbox"
+            >Cenoura Ralada<label id="preco"> Grátis</label>
+            <input
+              id="game21"
+              onclick="UpdateCost()"
+              type="checkbox"
+              value="0.00"
+              name="verdura4"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div id="opcoes">
+          <strong class="tituloEscolha">OBSERVAÇÕES:</strong> <br />
+          <br />
+          <textarea
+            placeholder="Exemplo: Carne bem passada"
+            name="observacao"
+            class="textinput"
+          ></textarea>
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+        <button
+          onclick="novoPedido()"
+          id="butOpcoes"
+          class="checkBtn"
+          type="submit"
+          value="Submit"
+        >
+          Pedir Outro
+        </button>
+        <button
+          id="butOpcoes2"
+          class="checkBtn"
+          type="submit"
+          formaction="/finalizar"
+        >
+          Finalizar
+        </button>
+      </form>
+    </div>
+    <div class="rodape">
+      <br />
+      Terça a Quinta, das 18h as 22:00h<br />
+      Sexta a Domingo, das 18h as 22:30h<br />
+      <br />
+      Rua Augusto Fidélis, 3217 - Santa Luzia <br />
+      Próximo ao hotel Bezerra<br />
+      <br />
+      <a
+        href="https://www.instagram.com/golds_burger/?hl=pt-br"
+        class="fa fa-lg fa-instagram"
+      ></a>
+      <a href="https://www.instagram.com/golds_burger/?hl=pt-br"
+        >@golds_burger</a
+      >
+      <br />
+      <br />
+      <a
+        href="https://api.whatsapp.com/send?phone=5588993788451"
+        class="fab fa-whatsapp"
+      ></a>
+      <a href="https://api.whatsapp.com/send?phone=5588993788451"
+        >(88)993788451</a
+      >
+      <br />
+      <br />
+      Criado e desenvolvido por
+      <a id="nomeDev" href="https://www.instagram.com/wesleyj.dev/?hl=pt-br">
+        Wesley Jonatha
+      </a>
+      <br />
+      <br />
+    </div>
+    <script src="./scripts/somaPreco.js"></script>
+    <script src="./scripts/escolherEntrega.js"></script>
+    <script src="./scripts/escolherPagamento.js"></script>
+  </body>
+</html>

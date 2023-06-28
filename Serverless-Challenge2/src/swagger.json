@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Serverless Challenge Documentation",
+    "description": "Challenge API documentation",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/employees": {
+      "post": {
+        "tags": ["Employees"],
+        "summary": "Create a employee",
+        "description": "Create a new employee",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Age": {
+                    "type": "number"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Position": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "Age": 23,
+                  "Name": "Wesley Jonatha",
+                  "Position": "Dev Nodejs"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Employee already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Employees"],
+        "summary": "List all employee",
+        "description": "List all employee",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Age": {
+                        "type": "number"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Position": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "delete": {
+        "tags": ["Employees"],
+        "summary": "Delete employee by id",
+        "description": "Delete employee by id",
+
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Age": {
+                        "type": "number"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Position": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

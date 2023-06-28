@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createEmployeeController = void 0;
+const EmployeesRepository_1 = require("../../repositories/implementations/EmployeesRepository");
+const CreateEmployeeController_1 = require("./CreateEmployeeController");
+const CreateEmployeeUseCase_1 = require("./CreateEmployeeUseCase");
+const employeesRepository = new EmployeesRepository_1.EmployeesRepository();
+const createEmployeeUseCase = new CreateEmployeeUseCase_1.CreateEmployeeUseCase(employeesRepository);
+const createEmployeeController = new CreateEmployeeController_1.CreateEmployeeController(createEmployeeUseCase);
+exports.createEmployeeController = createEmployeeController;

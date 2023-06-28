@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteEmployeeController = void 0;
+const EmployeesRepository_1 = require("../../repositories/implementations/EmployeesRepository");
+const DeleteEmployeeController_1 = require("./DeleteEmployeeController");
+const DeleteEmployeeUseCase_1 = require("./DeleteEmployeeUseCase");
+const employeesRepository = new EmployeesRepository_1.EmployeesRepository();
+const deleteEmployeeUseCase = new DeleteEmployeeUseCase_1.DeleteEmployeeUseCase(employeesRepository);
+const deleteEmployeeController = new DeleteEmployeeController_1.DeleteEmployeeController(deleteEmployeeUseCase);
+exports.deleteEmployeeController = deleteEmployeeController;

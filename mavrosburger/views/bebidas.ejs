@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./logoD.webp" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Mavros Burger</title>
+  </head>
+
+  <body>
+    <div id="fixedContainer">
+      <div id="textoPreco">
+        <span>R$: </span> <span id="totalcost">0.00</span>
+      </div>
+    </div>
+    <div id="cardapio">
+      <img src="./logoD.webp" id="logo" alt="logo" />
+      <img src="./menu3.png" id="menu" alt="menu" />
+      <div class="Categoria">
+        <strong id="categoria"
+          >Pedido N°:
+          <strong id="numeroDoPedido"><%= numeroDoPedido %></strong></strong
+        >
+
+        <form action="/pedidobebidas" method="post">
+          <strong id="categoria">Bebidas:</strong>
+          <div id="listar">
+            <% bebidas.forEach(function(bebida,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= bebida.item %>
+                <label id="preco">R$: <%= bebida.preco %></label>
+                <input
+                  onclick="UpdateCost()"
+                  name="bebida"
+                  id="bebida<%= index %>"
+                  value="<%= bebida.item %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+
+          <textarea
+            placeholder="Exemplo: A mais gelada"
+            name="observacao"
+            class="textinput"
+          ></textarea>
+
+          <button id="butOpcoes" type="submit" value="Submit" onClick="{}">
+            Pedir Outro
+          </button>
+          <button
+            id="butOpcoes2"
+            formaction="/finalizarpedidobebidas"
+            type="submit"
+          >
+            Finalizar
+          </button>
+          <div class="rodape">
+            <br />
+            Segunda a Segunda 14:30 às 22:00
+            <br />
+            <br />
+            Rua Zacarias Ferreira de Sousa
+            <br />
+            <br />
+            <a
+              href="https://www.instagram.com/mavroshamburgueria/"
+              class="fa fa-lg fa-instagram"
+            ></a>
+            <a href="https://www.instagram.com/mavroshamburgueria/">
+              @mavroshamburgueria
+            </a>
+            <br />
+            <br />
+            <a
+              href="https://api.whatsapp.com/send?phone=558881254437"
+              class="fab fa-whatsapp"
+            ></a>
+            <a href="https://api.whatsapp.com/send?phone=5588981254437">
+              (88)8222 2539
+            </a>
+            <br />
+            <br />
+            Criado e desenvolvido por
+            <a
+              id="nomeDev"
+              href="https://www.instagram.com/wesleyj.dev/?hl=pt-br"
+            >
+              Wesley Jonatha
+            </a>
+            <br />
+            <br />
+          </div>
+          <script src="./scripts/somaPreco2.js"></script>
+
+          <input
+            id="TotalBebida"
+            name="TotalBebida"
+            type="text"
+            value=""
+            style="display: none"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

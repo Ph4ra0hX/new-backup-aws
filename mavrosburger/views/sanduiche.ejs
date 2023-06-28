@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main2.css" />
+    <link rel="icon" href="./logoD.webp" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Mavros Burger</title>
+  </head>
+
+  <body>
+    <div id="fixedContainer">
+      <div id="textoPreco">
+        <span>R$: </span> <span id="totalcost">0.00</span>
+      </div>
+    </div>
+    <div id="cardapio">
+      <img src="./logoD.webp" id="logo" alt="logo" />
+      <img src="./menu3.png" id="menu" alt="menu" />
+      <div class="Categoria">
+        <strong id="categoria"
+          >Pedido N°:
+          <strong id="numeroDoPedido"><%= numeroDoPedido %></strong></strong
+        >
+
+        <form action="/pedidosanduiche" method="post">
+          <strong id="categoria">Pão:</strong>
+          <div id="listar">
+            <% paes.forEach(function(pao,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= pao.nome %>
+                <label id="preco">R$: <%= pao.preco %></label>
+                <input
+                  onclick="UpdateCost()"
+                  name="pao"
+                  id="pao<%= index %>"
+                  value="<%= pao.nome %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+
+          <br />
+          <strong id="categoria">Carne:</strong>
+          <div id="listar">
+            <% carnes.forEach(function(carne,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= carne.nome %>
+                <label id="preco">R$: <%= carne.preco %></label>
+                <input
+                  onclick="UpdateCost()"
+                  name="carne"
+                  id="carne<%= index %>"
+                  value="<%= carne.nome %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+          <br />
+          <strong id="categoria">Queijo:</strong>
+          <div id="listar">
+            <% queijos.forEach(function(queijo,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= queijo.nome %>
+                <label id="preco">R$: <%= queijo.preco %></label>
+                <input onclick="UpdateCost()" name="queijo" id="queijo<%= index
+                %>"" value="<%= queijo.nome %>" type="checkbox" />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+          <br />
+          <strong id="categoria">Adicionais:</strong>
+          <div id="listar">
+            <% adicionais.forEach(function(adicional,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= adicional.nome %>
+                <label id="preco">R$: <%= adicional.preco %></label>
+                <input
+                  onclick="UpdateCost()"
+                  name="adicional"
+                  id="adicional<%=index%>"
+                  value="<%= adicional.nome %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+          <br />
+          <strong id="categoria">Complemetos:</strong>
+          <div id="listar">
+            <% complemetos.forEach(function(complemeto,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= complemeto.nome %>
+                <label id="preco">Grátis</label>
+                <input
+                  name="complemeto"
+                  id="complemeto"
+                  value="<%= complemeto.nome %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+          <br />
+          <strong id="categoria">Molhos:</strong>
+          <div id="listar">
+            <% molhos.forEach(function(molho,index){ %>
+            <div id="item">
+              <label class="container-checkbox">
+                <%= molho.nome %> <% if (molho.preco > 0) { %>
+                <label id="preco">R$: <%= molho.preco %></label>
+                <%} else { %>
+                <label id="preco">Grátis</label>
+                <% } %>
+                <input
+                  name="molho"
+                  onclick="UpdateCost()"
+                  id="molho<%= index %>"
+                  value="<%= molho.nome %>"
+                  type="checkbox"
+                />
+
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <% }); %>
+          </div>
+          <br />
+          <textarea
+            placeholder="Exemplo: Carne bem passada"
+            name="observacao"
+            class="textinput"
+          ></textarea>
+
+          <button id="butOpcoes" type="submit" value="Submit" onClick="{}">
+            Pedir Outro
+          </button>
+          <button
+            id="butOpcoes2"
+            formaction="/finalizarpedidosanduiche"
+            type="submit"
+          >
+            Finalizar
+          </button>
+          <div class="rodape">
+            <br />
+            Terça a Domingo 18:00 às 22:00
+            <br />
+            <br />
+            Rua Zacarias Ferreira de Sousa
+            <br />
+            <br />
+            <a
+              href="https://www.instagram.com/mavroshamburgueria/"
+              class="fa fa-lg fa-instagram"
+            ></a>
+            <a href="https://www.instagram.com/mavroshamburgueria/">
+              @mavroshamburgueria
+            </a>
+            <br />
+            <br />
+            <a
+              href="https://api.whatsapp.com/send?phone=558881254437"
+              class="fab fa-whatsapp"
+            ></a>
+            <a href="https://api.whatsapp.com/send?phone=5588981254437">
+              (88)8222 2539
+            </a>
+            <br />
+            <br />
+            Criado e desenvolvido por
+            <a
+              id="nomeDev"
+              href="https://www.instagram.com/wesleyj.dev/?hl=pt-br"
+            >
+              Wesley Jonatha
+            </a>
+            <br />
+            <br />
+          </div>
+
+          <input
+            id="TotalSanduiche"
+            name="TotalSanduiche"
+            type="text"
+            value=""
+            style="display: none"
+          />
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/somaPreco.js"></script>
+  </body>
+</html>

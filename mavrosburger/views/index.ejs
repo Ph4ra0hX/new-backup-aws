@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./logoD.webp" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5c2012f9d1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Mavros Burger</title>
+  </head>
+  <body>
+    <div id="cardapio">
+      <img src="./logoD.webp" id="logo" alt="logo" />
+        <div id="selecionar">
+          <div id="imgEtitulo">
+            <h2 id="titulo">SANDUICHE</h2>
+            <img class="swing" id="imgcomida" src="./55.webp" />
+          </div>
+          <div class="menu">
+            <div id="ck-button">
+              <label>
+                <input
+                  onclick="location.href='/sanduiche';"
+                  class="burger1"
+                  type="checkbox"
+                /><span id="burger">Selecionar</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="selecionar">
+          <div id="imgEtitulo">
+            <h2 id="titulo">BEBIDAS</h2>
+            <img class="swing" id="imgcomida" src="./77.webp" />
+          </div>
+          <div class="menu">
+            <div id="ck-button">
+              <label>
+                <input
+                  onclick="location.href='/bebidas';"
+                  class="burger1"
+                  type="checkbox"
+                /><span id="burger">Selecionar</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="rodape">
+          <br />
+          Terça a Domingo 18:00 às 22:00
+          <br />
+          <br />
+          Rua Zacarias Ferreira de Sousa
+          <br />
+          <br />
+          <a
+           href="https://www.instagram.com/mavroshamburgueria/"
+        class="fa fa-lg fa-instagram"
+      ></a>
+      <a href="https://www.instagram.com/mavroshamburgueria/">
+        @mavroshamburgueria
+          </a>
+          <br />
+          <br />
+          <a
+             href="https://api.whatsapp.com/send?phone=558881254437"
+        class="fab fa-whatsapp"
+      ></a>
+      <a href="https://api.whatsapp.com/send?phone=5588981254437">
+        (88)8222 2539
+          </a>
+          <br />
+          <br />
+          Criado e desenvolvido por
+          <a
+            id="nomeDev"
+            href="https://www.instagram.com/wesleyj.dev/?hl=pt-br"
+          >
+            Wesley Jonatha
+          </a>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+    <style>
+      .swing {
+        animation: swing ease-in-out 1s infinite alternate;
+        transform-origin: center -140px;
+      }
+
+      @keyframes swing {
+        0% {
+          transform: rotate(5deg);
+        }
+
+        100% {
+          transform: rotate(-5deg);
+        }
+      }
+
+      body {
+        background-color: #1a1a1a;
+        background-image: url(./fundo3.png);
+        margin: 0;
+      }
+
+      #cardapio {
+        max-width: 600px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #numeroPedido {
+        font-family: Barlow-Black;
+        color: #ef8a21;
+        font-size: 25px;
+      }
+
+      #listar {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @font-face {
+        font-family: Barlow-Black;
+        src: url(./fonts/Barlow-Black.otf);
+      }
+      @font-face {
+        font-family: Barlow-SemiBold;
+        src: url(./fonts/Barlow-SemiBold.otf);
+      }
+
+      label {
+        color: #04bf9d;
+        font-family: Barlow-SemiBold;
+        font-size: 25px;
+      }
+
+      .container-checkbox {
+        display: inline;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .container-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .container-checkbox .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 5px;
+      }
+      .container-checkbox:hover input ~ .checkmark {
+        background-color: #04bf9d;
+      }
+      .container-checkbox input:checked ~ .checkmark {
+        background-color: #ef8a21;
+      }
+      .container-checkbox .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .container-checkbox input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .container-checkbox .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid #04bf9d;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      #preco {
+        float: right;
+      }
+
+      #ingredientes {
+        color: #f2b47e;
+        font-family: Barlow-SemiBold;
+        font-size: 20px;
+        margin-top: 15px;
+      }
+
+      #item {
+        margin-top: 10px;
+      }
+
+      #categoria {
+        font-family: Barlow-Black;
+        color: #ef8a21;
+        font-size: 25px;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .Categoria {
+        display: block;
+        margin-top: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+
+      .comment {
+        float: left;
+        width: 98%;
+        height: auto;
+      }
+
+      .commenter {
+        float: left;
+      }
+
+      .commenter img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .comment-text-area {
+        float: left;
+        width: 99%;
+        height: auto;
+      }
+
+      .rodape {
+        margin-top: 15px;
+        text-align: center;
+        color: #fff;
+        font-family: Barlow-SemiBold;
+        bottom: 0;
+      }
+
+      .fa-instagram {
+        color: #fff;
+        margin-right: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .fa-whatsapp {
+        color: #fff;
+        font-size: 22px;
+        margin-right: 5px;
+      }
+
+      #nomeDev {
+        color: #FF9302;
+        margin-left: 5px;
+      }
+
+      #butOpcoes {
+        width: 100%;
+        margin-top: 25px;
+        padding: 18px 50px;
+        border-radius: 8px;
+        border: 0;
+        background-color: #f2b47e;
+        cursor: pointer;
+        font-family: Barlow-SemiBold;
+        font-size: 20px;
+        color: #141414;
+      }
+      #butOpcoes2 {
+        width: 100%;
+        margin-top: 25px;
+        padding: 18px 50px;
+        border-radius: 8px;
+        border: 0;
+        background-color: #ff8400;
+        cursor: pointer;
+        font-family: Barlow-SemiBold;
+        font-size: 20px;
+        color: #141414;
+      }
+
+      .textinput {
+        margin-top: 30px;
+        float: left;
+        width: 99%;
+        min-height: 75px;
+        outline: 0;
+        resize: none;
+        font-family: Barlow-SemiBold;
+        font-size: 20px;
+        border: 1px solid grey;
+      }
+
+      #menu {
+        padding-top: 55px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+        width: 190px;
+      }
+
+      #logo {
+        padding-top: 45px;
+        height: 300px;
+        margin-bottom: 40px;
+        margin: 0 auto;
+      }
+
+      #numeroDoPedido {
+        font-family: Barlow-SemiBold;
+        font-size: 40px;
+      }
+
+      #fixedContainer {
+        background-color: #ef8a21;
+        position: fixed;
+        margin-top: 462px;
+        width: 100px;
+        height: 60px;
+        margin-left: 70%;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+      #textoPreco {
+        font-family: Barlow-SemiBold;
+        font-size: 20px;
+      }
+
+      .product__price-tag {
+        margin-top: 250px;
+        margin-left: -20px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        border-radius: 8px 8px 8px 0;
+        background: #f2cb05;
+        z-index: 99;
+        position: absolute;
+        font-family: Barlow-SemiBold;
+      }
+      .product__price-tag::after {
+        content: "";
+        position: absolute;
+        border-left: 20px solid transparent;
+        border-top: 10px solid #d3b001;
+        left: 0;
+        top: 50px;
+      }
+      .product__price-tag-price {
+        margin-top: 15px;
+        margin-left: 20px;
+        color: #fff;
+        font-size: 24px;
+      }
+
+      @font-face {
+        font-family: Thirsty;
+        src: url(../fonts/Thirsty.otf);
+      }
+      @font-face {
+        font-family: Barlow-SemiBold;
+        src: url(../fonts/Barlow-SemiBold.otf);
+      }
+      @font-face {
+        font-family: Barlow-Black;
+        src: url(../fonts/Barlow-Black.otf);
+      }
+
+      .menu {
+        margin: 0 auto;
+      }
+      #imgEtitulo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #titulo {
+        margin-top: 35px;
+        font-family: Barlow-Black;
+        font-size: 24px;
+        color: #FF9302;
+      }
+      #imgcomida {
+        margin-top: 15px;
+        width: 320px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+      #selecionar {
+        background-color: #1d1d1d;
+        border-radius: 50px;
+        width: 250px;
+        height: auto;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #ck-button label {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 50px;
+        background-color: #FF9302;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin-bottom: 0px;
+        color: #141414;
+        cursor: pointer;
+      }
+      #ck-button label span {
+        text-align: center;
+        padding: 3px 0;
+        display: block;
+      }
+      #ck-button label input {
+        position: absolute;
+        top: -20px;
+        display: none;
+      }
+      #ck-button input:hover + span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 50px;
+        background-color: #ec8703;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+
+      #burger {
+        font-weight: 600;
+        font-size: 20px;
+      }
+    </style>
+  </body>
+</html>
